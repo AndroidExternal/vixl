@@ -115,6 +115,11 @@ vixl_cpp_flags := \
 vixl_cpp_flags += \
   -Wwrite-strings \
 
+# VIXL fails to compile with GCC 4.9 or higher. Fix this
+# by passing -Wno-error=maybe-uninitialized
+vixl_cpp_flags += \
+  -Wno-error=maybe-uninitialized \
+
 vixl_cpp_flags_release := \
   $(vixl_cpp_flags) \
   -O3 \
